@@ -57,7 +57,7 @@ transform = transforms.Compose([
 ])
 
 # Streamlit UI
-st.title("🚗 Accident Detection in Video")
+st.title("💥🚗 Accident Detection Model")
 uploaded_video = st.file_uploader("Upload a video clip", type=["mp4", "avi", "mov"])
 
 if uploaded_video is not None:
