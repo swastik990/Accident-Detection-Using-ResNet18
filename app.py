@@ -4,6 +4,7 @@ import tempfile
 from PIL import Image
 import torchvision.transforms as transforms
 import torchvision.models as models
+import imageio
 import os
 
 # Define extract_frames and predict_clip here or import from utils
