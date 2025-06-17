@@ -1,9 +1,6 @@
 streamlit
 torch
 torchvision
+pillow
 opencv-python
-numpy
-Pillow
-tqdm
-yt_dlp
-ffmpeg
+imageio
