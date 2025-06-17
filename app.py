@@ -4,26 +4,18 @@ import tempfile
 from PIL import Image
 import torchvision.transforms as transforms
 import torchvision.models as models
-import cv2
 import os
 
 # Define extract_frames and predict_clip here or import from utils
 def extract_frames(video_path, frame_rate=10):
-    """Extract frames from video at specified frame rate."""
-    cap = cv2.VideoCapture(video_path)
+    """Extract frames from video at specified frame rate using imageio."""
+    reader = imageio.get_reader(video_path, "ffmpeg")
     frames = []
-    frame_count = 0
-    while cap.isOpened():
-        ret, frame = cap.read()
-        if not ret:
-            break
-        if frame_count % int(cap.get(cv2.CAP_PROP_FPS)) == 0:
-            # Convert BGR to RGB
-            frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+    for i, frame in enumerate(reader):
+        if i % frame_rate == 0:
             pil_img = Image.fromarray(frame)
             frames.append(pil_img)
-        frame_count += 1
-    cap.release()
+    reader.close()
     return frames
 
 
