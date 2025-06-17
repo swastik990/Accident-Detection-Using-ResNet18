@@ -6,3 +6,5 @@ numpy
 Pillow
 tqdm
 yt_dlp
+libgl1
+ffmpeg
